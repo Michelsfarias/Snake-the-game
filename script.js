@@ -40,7 +40,7 @@ function update (event){
 
 }
 
-function iniciarjogo(){
+function iniciarJogo(){
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
     if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
@@ -54,13 +54,15 @@ function iniciarjogo(){
     let snakeY= snake[0].y;
 
     if(direction =="right") snakeX += box;
-    if(direction == "left") snakeY -= box;
+    if(direction == "left") snakeX-= box;
     if(direction == "up") snakeY -= box;
-    if (direction == "down") snakeX += box;
+    if (direction == "down") snakeY += box;
+
+
 
     snake.pop();
 
-    let newHead ={
+    let newHead = {
         x: snakeX,
         y: snakeY
     }
@@ -68,4 +70,4 @@ function iniciarjogo(){
     snake.unshift(newHead);
 }
 
-let jogo = setInterval(iniciarjogo, 100);
+let jogo = setInterval(iniciarJogo, 100);
